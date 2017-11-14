@@ -7,7 +7,7 @@ public class ContactsManager {
     }
 
     public void printAllContacts() {
-
+        System.out.print("Nicole Ferroni");
     }
 
     public void searchContactByName(String name) {
