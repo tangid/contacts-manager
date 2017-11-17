@@ -8,7 +8,11 @@ public class ContactsManager {
     private ArrayList<Contact> allContact = new ArrayList<Contact>();
 
 
-    public void addContact(String name, String email, String phoneNumber) {
+    public void addContact(String name, String email, String phoneNumber) throws InvalidContactNameException {
+        if ((name == null) || (name == "")){
+            throw new InvalidContactNameException("no name");
+        }
+
         allContact.add(new Contact(name, email, phoneNumber));
         maxContact = maxContact + 1;
     }
@@ -23,17 +27,23 @@ public class ContactsManager {
                 System.out.print(", " + contact.email);
             if (contact.phoneNumber != null)
                 System.out.print(", " + contact.phoneNumber);
-       /*     if ((contact.email != null) && (contact.phoneNumber != null))
-                System.out.print(contact.name + ", " + contact.email + ", " + contact.phoneNumber);
-            else if ((contact.email != null) && (contact.phoneNumber == null))
-                System.out.print(contact.name + ", " + contact.email);
-            else if ((contact.email == null) && (contact.phoneNumber != null))
-                System.out.print(contact.name + ", " + contact.phoneNumber); */
         }
 
     }
 
     public void searchContactByName(String name) {
+        for (Contact contact: allContact)
+        {
+            if ((contact.name.toLowerCase()).contains(name))
+            {
+                System.out.print(contact.name);
+                if (contact.email != null)
+                    System.out.print(", " + contact.email);
+                if (contact.phoneNumber != null)
+                    System.out.print(", " + contact.phoneNumber);
 
+                System.out.println();
+            }
+        }
     }
 }
