@@ -17,12 +17,18 @@ public class ContactsManager {
     {
         for (Contact contact: allContact)
         {
-            if ((contact.email != null) && (contact.phoneNumber != null))
+
+            System.out.print(contact.name);
+            if (contact.email != null)
+                System.out.print(", " + contact.email);
+            if (contact.phoneNumber != null)
+                System.out.print(", " + contact.phoneNumber);
+       /*     if ((contact.email != null) && (contact.phoneNumber != null))
                 System.out.print(contact.name + ", " + contact.email + ", " + contact.phoneNumber);
             else if ((contact.email != null) && (contact.phoneNumber == null))
                 System.out.print(contact.name + ", " + contact.email);
             else if ((contact.email == null) && (contact.phoneNumber != null))
-                System.out.print(contact.name + ", " + contact.phoneNumber);
+                System.out.print(contact.name + ", " + contact.phoneNumber); */
         }
 
     }
